@@ -4,7 +4,7 @@ This is a very simple project to visualize an audio file using Python tools. It 
 
 ## Steps to run
 
-1. Setup a virtual environment. If you use `anaconda` then just do `conda create -n (name_of_environment)`. Otherwise use `virtualenv` in the usual way: `python -m virtualenv venv` followed by the appropriate activate command (`venv/bin/activate` on Linux and Mac, `venv\Scripts\activate.bat` or `venv\Scripts.activate.ps1` on Windows for cmd.exe and PowerShell respectively.)
+1. Setup a virtual environment. If you use `anaconda` then just do `conda create -n (name_of_environment)` and `conda activate (name_of_environment)`. Otherwise use `virtualenv` in the usual way: `python -m virtualenv venv` followed by the appropriate activate command (`venv/bin/activate` on Linux and Mac, `venv\Scripts\activate.bat` or `venv\Scripts.activate.ps1` on Windows for cmd.exe and PowerShell respectively.)
 1. Install packages. `pip install -r requirements.txt`
 1. Run the app to plot the demo file: `python app.py demo.wav`
 1. It also works with mp3 files: `python app.py demo.mp3`

@@ -1,6 +1,8 @@
-# Audio Visualizer
+# Audio Visualizer and Tone Generator
 
 This is a very simple project to visualize an audio file using Python tools. It uses `matplotlib` and `numpy` to visualize the audio graph, and uses `pydub` to convert non-`.wav` files to `.wav` format for parsing. The output is similar to what you might see in a digital audio editing package.
+
+Additionally, the `tonefile.py` program and class shows how to generate a .wav file with tones.
 
 ## Steps to run
 

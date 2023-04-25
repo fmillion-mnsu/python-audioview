@@ -8,6 +8,7 @@ import os.path
 import struct
 
 class ToneFile:
+    """Generates .WAV files consisting of tones."""
 
     def __init__(self, outputFile):
 
@@ -49,6 +50,7 @@ class ToneFile:
         self._objects.append( (divisor, int(math.floor(length_ms/1000.0*96000))) )
 
     def write(self):
+        """Write all accumulated tones to the .WAV file. You must call this function or no WAV file will be generated."""
 
         # generate bytestring to hold output data, with
         # initial wav header data prepared
@@ -102,7 +104,11 @@ class ToneFile:
         # samples finished... 
         # now we can start generating the bytes for the wav file
         
-        # total size of file = sample bytes + 44
+        # this generates the structures for a .wav file
+        # for info on the wav file format, see:
+        # https://ccrma.stanford.edu/courses/422-winter-2014/projects/WaveFormat/\
+
+        # total size of standard PCM wav file = sample bytes + 44
         total_file_size = struct.pack("<L",len(wav_samples)+44)
         wav_data  = b"RIFF"+total_file_size+b"WAVE" # riff header
         wav_data += b"fmt \x10\x00\x00\x00" # fmt chunk header
@@ -112,8 +118,8 @@ class ToneFile:
 
         # Write the data to the wav file
         of = open(os.path.abspath(self.wavPath),"wb")
-        of.write(wav_data)
-        of.write(wav_samples)
+        of.write(wav_data) # write headers
+        of.write(wav_samples) # write raw samples
         of.close()
 
 def main():
